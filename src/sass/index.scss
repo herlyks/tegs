@@ -1,0 +1,89 @@
+@import "constant";
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, button {
+  background-color: $black;
+  color: $white;
+  font-family: "Courier new", monospace;
+}
+
+body {
+  font-size: 14px;
+}
+
+button {
+  min-height: 20px;
+  font-size: 12px;
+  border: 1px dashed $white;
+  cursor: pointer;
+  padding: 2px 4px;
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
+
+  &:active {
+    border-style: solid;
+    background-color: $black;
+    color: $white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.disabled {
+  color: $semi-black;
+}
+
+.muted {
+  color: $semi-white;
+}
+
+#main {
+  margin: 20px;
+  border: 2px dashed $white;
+  float: left;
+  padding: 5px;
+  width: 400px;
+}
+
+.bar {
+  width: 100%;
+  margin-bottom: 5px;
+
+  &.hp {
+    height: 20px;
+    border: 1px dashed $white;
+  }
+
+  &.mp {
+    height: 2px;
+  }
+
+  .value {
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+    transition: width .3s ease-in-out;
+  }
+}
+
+.enemy,
+.player,
+.control {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}

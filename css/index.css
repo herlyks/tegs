@@ -1,0 +1,81 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, button {
+  background-color: #333;
+  color: #eee;
+  font-family: "Courier new", monospace;
+}
+
+body {
+  font-size: 14px;
+}
+
+button {
+  min-height: 20px;
+  font-size: 12px;
+  border: 1px dashed #eee;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+button:hover {
+  background-color: #eee;
+  color: #333;
+}
+button:active {
+  border-style: solid;
+  background-color: #333;
+  color: #eee;
+}
+button:focus {
+  outline: none;
+}
+
+.disabled {
+  color: #666;
+}
+
+.muted {
+  color: #aaa;
+}
+
+#main {
+  margin: 20px;
+  border: 2px dashed #eee;
+  float: left;
+  padding: 5px;
+  width: 400px;
+}
+
+.bar {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.bar.hp {
+  height: 20px;
+  border: 1px dashed #eee;
+}
+.bar.mp {
+  height: 2px;
+}
+.bar .value {
+  height: 100%;
+  width: 100%;
+  background-color: #eee;
+  transition: width 0.3s ease-in-out;
+}
+
+.enemy:not(:last-child),
+.player:not(:last-child),
+.control:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=index.css.map */

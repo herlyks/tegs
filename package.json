@@ -1,0 +1,23 @@
+{
+  "name": "the-enemy-is-getting-stronger",
+  "version": "1.0.0",
+  "description": "The enemy is getting stronger each time you defeat them. can you reach the highest level?",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node ./node_modules/sass/sass.js --watch ./src/sass/index.scss:./css/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herlyks/tegs.git"
+  },
+  "author": "herlyks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/herlyks/tegs/issues"
+  },
+  "homepage": "https://github.com/herlyks/tegs#readme",
+  "devDependencies": {
+    "sass": "1.15.2"
+  }
+}
