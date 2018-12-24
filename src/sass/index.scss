@@ -41,9 +41,19 @@ button {
   &:focus {
     outline: none;
   }
+
+  &[disabled] {
+    border-color: $semi-black;
+    color: $semi-white;
+
+    &:hover {
+      border-style: dashed;
+      background-color: $black;
+    }
+  }
 }
 
-.disabled {
+.disabled, [disabled] {
   color: $semi-black;
 }
 

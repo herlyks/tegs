@@ -6,11 +6,17 @@ $(document).ready(function() {
 var enemy, player;
 
 function init() {
-  enemy = new Actor();
+  enemy  = new Actor();
   player = new Actor();
 
   $('#attack').on('click', function() {
-    player.attack(enemy).then(enemyTurn);
+    player.attack(enemy);
+    enemyTurn();
+  });
+
+  $('#heal').on('click', function() {
+    player.heal(player);
+    enemyTurn();
   });
 }
 
@@ -31,18 +37,40 @@ function Actor(max_hp = 100, max_mp = 100, atk = 10, matk = 10, crit_chance = 0,
   this.matk        = matk;
   this.crit_chance = crit_chance;
   this.crit_dmg    = crit_dmg;
+
   this.attack = function(target) {
     target.hp = target.hp - this.atk;
     return this;
   };
 
-  this.then = function(callback) {
-    callback();
+  this.heal_mp_cost = 10;
+  this.heal         = function(target) {
+    this.mp     = this.mp - this.heal_mp_cost;
+    target.hp   = target.hp + this.matk;
+    if (target.hp > target.max_hp) target.hp = target.max_hp;
   };
 }
 
 function enemyTurn() {
-  alert('yes');
+  $('.control button').attr('disabled', true);
+  var possible_moves = [];
+
+  possible_moves.push(function() {
+    enemy.attack(player);
+  });
+
+  if (enemy.mp >= enemy.heal_mp_cost && enemy.hp < enemy.max_hp) {
+    possible_moves.push(function() {
+      enemy.heal(enemy);
+    });
+  }
+
+  var d = dice(0, possible_moves.length - 1);
+
+  setTimeout(function() {
+    possible_moves[d]();
+    $('.control button').attr('disabled', false);
+  }, 500);
 }
 
 function dice(min = 1, max = 6) {

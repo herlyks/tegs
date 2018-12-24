@@ -37,8 +37,16 @@ button:active {
 button:focus {
   outline: none;
 }
+button[disabled] {
+  border-color: #666;
+  color: #aaa;
+}
+button[disabled]:hover {
+  border-style: dashed;
+  background-color: #333;
+}
 
-.disabled {
+.disabled, [disabled] {
   color: #666;
 }
 
